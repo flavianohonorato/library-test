@@ -2,12 +2,17 @@
 
 namespace App\Http\Requests;
 
+/**
+ * @OA\Schema(
+ * required={"name", "birthdate", "genre"}
+ * )
+ */
 class AuthorStoreRequest extends Request
 {
     /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
+     * @OA\Property(property="name", type="string")
+     * @OA\Property(property="birthdate", type="string", format="date")
+     * @OA\Property(property="genre", type="string", description="Genre of writes")
      */
     public function rules()
     {

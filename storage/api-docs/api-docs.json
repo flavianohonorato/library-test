@@ -1,0 +1,100 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Library",
+        "version": "0.1"
+    },
+    "paths": {
+        "/authors": {
+            "post": {
+                "tags": [
+                    "authors"
+                ],
+                "summary": "Create author",
+                "operationId": "App\\Http\\Controllers\\AuthorStoreController::__invoke",
+                "requestBody": {
+                    "description": "Create author",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthorStoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthorResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AuthorStoreRequest": {
+                "required": [
+                    "name",
+                    "birthdate",
+                    "genre"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "birthdate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "genre": {
+                        "description": "Genre of writes",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AuthorResource": {
+                "required": [
+                    "name",
+                    "birthdate",
+                    "genre"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "birthdate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "genre": {
+                        "description": "Genre of writes",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
