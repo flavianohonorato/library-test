@@ -6,4 +6,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/authors', AuthorStoreController::class);
 
-Route::get('.health', HealthCheckController::class);
+Route::get('.healthcheck', HealthCheckController::class);
