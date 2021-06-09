@@ -35,6 +35,6 @@ class BookCreateFromISBNServiceTest extends TestCase
         $isbn = "9788538302759";
         $service = new BookCreateFromISBNService("token");
 
-        $response = $service->handle($isbn);
+        $service->handle($isbn);
     }
 }

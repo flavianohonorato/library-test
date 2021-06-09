@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorStoreRequest;
 use App\Http\Resources\AuthorResource;
-use App\Http\Resources\MessageResource;
 use App\Services\AuthorCreateService;
 
 class AuthorStoreController extends Controller
@@ -42,12 +41,6 @@ class AuthorStoreController extends Controller
         $data = $request->validated();
 
         $author = $service->handle($data);
-
-        if (!$author) {
-            return MessageResource::make((object) ['message' => 'Internal Server Error'])
-                ->response()
-                ->setStatusCode(500);
-        }
 
         return AuthorResource::make($author);
     }
